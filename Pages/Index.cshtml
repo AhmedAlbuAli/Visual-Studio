@@ -1,0 +1,85 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>My Music Page</title>
+
+    <style>
+        /* --- Modern, cool styling --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #1e1e2f, #2e2e47, #12121a);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-top: 40px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            color: #00e6ff;
+            text-shadow: 0 0 15px #00e6ff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Center the YouTube video */
+        .video-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        iframe {
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 id="animatedTitle">My Favorite Song</h1>
+
+    <p>Enjoy this awesome track!</p>
+
+    <!-- Embedded YouTube Music Video -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZX_mvoY_Hg0?si=ohsy2TqM_uXNC570" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        // --- Cool Looped Animation for <h1> ---
+        const title = document.getElementById("animatedTitle");
+        let scaleUp = true;
+
+        function animateTitle() {
+            if (scaleUp) {
+                title.style.transform = "scale(1.2)";
+                title.style.textShadow = "0 0 25px #00faff, 0 0 40px #00faff";
+            } else {
+                title.style.transform = "scale(1)";
+                title.style.textShadow = "0 0 10px #00e6ff";
+            }
+            scaleUp = !scaleUp;
+        }
+
+        // Loop every 700ms
+        setInterval(animateTitle, 700);
+    </script>
+
+</body>
+</html>
